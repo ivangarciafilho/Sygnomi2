@@ -1,0 +1,52 @@
+using UnityEngine;
+using GameFlow;
+
+// An example showing how to implement a basic custom Function (Action with output).
+
+namespace ${namespace} {
+
+// Help summary is localized according to current system language.
+[Help("en", "Action summary.", "context-help-url")]
+[Help("es", "Resumen acción.", "url-ayuda-contextual")]
+
+// Prevent the Action from appearing in the Add Component menu.
+[AddComponentMenu("")]
+
+public class ${action} : Function {
+
+	// Declare a Variable-friendly property for the action
+	[SerializeField]
+	float _number1;
+	[SerializeField]
+	Variable _number1Var;
+
+	// Define a convenience property getter
+	public float number1 {
+		// Link basic-type value and Variable reference through an extension method
+		get { return _number1Var.GetValue(_number1); }
+	}
+
+	// Declare a 2nd Variable-friendly property for the action
+	[SerializeField]
+	float _number2;
+	[SerializeField]
+	Variable _number2Var;
+
+	// Define the corresponding convenience property getter
+	public float number2 {
+		get { return _number2Var.GetValue(_number2); }
+	}
+
+	// Code implementing any setup required by the action
+	protected override void OnSetup() {
+	}
+
+	// Code implementing the effect of the action
+	protected override void OnExecute() {
+		// Sum the values and put the result into the output Variable
+		output.SetValue(number1 + number2);
+	}
+${skip}
+}
+
+}

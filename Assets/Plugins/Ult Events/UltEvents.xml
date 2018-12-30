@@ -1,0 +1,1169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UltEvents</name>
+    </assembly>
+    <members>
+        <member name="P:UltEvents.DrawerState.EventProperty">
+            <summary>The <see cref="T:UnityEditor.SerializedProperty"/> for the event currently being drawn.</summary>
+        </member>
+        <member name="P:UltEvents.DrawerState.Event">
+            <summary>The event currently being drawn.</summary>
+        </member>
+        <member name="P:UltEvents.DrawerState.CallProperty">
+            <summary>The <see cref="T:UnityEditor.SerializedProperty"/> for the call currently being drawn.</summary>
+        </member>
+        <member name="P:UltEvents.DrawerState.TargetProperty">
+            <summary>The <see cref="T:UnityEditor.SerializedProperty"/> for the target of the call currently being drawn.</summary>
+        </member>
+        <member name="P:UltEvents.DrawerState.MethodNameProperty">
+            <summary>The <see cref="T:UnityEditor.SerializedProperty"/> for the method name of the call currently being drawn.</summary>
+        </member>
+        <member name="P:UltEvents.DrawerState.PersistentArgumentsProperty">
+            <summary>The <see cref="T:UnityEditor.SerializedProperty"/> for the persistent arguments array of the call currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.callIndex">
+            <summary>The index of the call currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.call">
+            <summary>The call currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.callParameters">
+            <summary>The parameters of the call currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.parameterIndex">
+            <summary>The index of the parameter currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.PreviousCalls">
+            <summary>The calls of the current event that come before the current call currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.DrawerState.PersistentMethodCache">
+            <summary>The methods targeted by the calls of the event currently being drawn.</summary>
+        </member>
+        <member name="F:UltEvents.MethodSelectionMenu.CachedState">
+            <summary>
+            The drawer state from when the menu was opened which needs to be restored when a method is selected because
+            menu items are executed after the frame finishes and the drawer state is cleared.
+            </summary>
+        </member>
+        <member name="M:UltEvents.MethodSelectionMenu.IsSupported(System.Type)">
+            <summary>
+            Returns true if the specified 'type' can be represented by a <see cref="T:UltEvents.PersistentArgument"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.MethodSelectionMenu.IsSupported(System.Reflection.ParameterInfo[])">
+            <summary>
+            Returns true if the type of each of the 'parameters' can be represented by a <see cref="T:UltEvents.PersistentArgument"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.ObjectPicker">
+            <summary>[Editor-Only] Allows you to draw GUI fields which can be used to pick an object from a list.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.Draw``1(UnityEngine.Rect,``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0},UnityEngine.GUIStyle)">
+            <summary>Draws a field which lets you pick an object from a list and returns the selected object.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.Draw``1(UnityEngine.Rect,``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0})">
+            <summary>Draws a field which lets you pick an object from a list and returns the selected object.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawLayout``1(``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0},UnityEngine.GUIStyle,UnityEngine.GUILayoutOption[])">
+            <summary>Draws a field (using GUILayout) which lets you pick an object from a list and returns the selected object.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawLayout``1(``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0},UnityEngine.GUILayoutOption[])">
+            <summary>Draws a field (using GUILayout) which lets you pick an object from a list and returns the selected object.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawEditorLayout``1(UnityEngine.GUIContent,``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0},UnityEngine.GUIStyle,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a field (as an inspector field using GUILayout) which lets you pick an object from a list and returns
+            the selected object.
+            </summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawEditorLayout``1(UnityEngine.GUIContent,``0,System.Func{System.Collections.Generic.List{``0}},System.Int32,System.Func{``0,UnityEngine.GUIContent},System.Func{``0},UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a field (as an inspector field using GUILayout) which lets you pick an object from a list and returns
+            the selected object.
+            </summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawTypeField(UnityEngine.Rect,System.Type,System.Func{System.Collections.Generic.List{System.Type}},System.Int32,UnityEngine.GUIStyle)">
+            <summary>Draws a field which lets you pick a <see cref="T:System.Type"></see> from a list and returns the selected type.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawAssetTypeField(UnityEngine.Rect,System.Type,System.Func{System.Collections.Generic.List{System.Type}},System.Int32,UnityEngine.GUIStyle)">
+            <summary>Draws a field which lets you pick an asset <see cref="T:System.Type"></see> from a list and returns the selected type.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.DrawTypeField(UnityEngine.Rect,System.String,System.Func{System.Collections.Generic.List{System.Type}},System.Int32,UnityEngine.GUIStyle)">
+            <summary>Draws a field which lets you pick a <see cref="T:System.Type"></see> from a list and returns the selected <see cref="P:System.Type.AssemblyQualifiedName"/>.</summary>
+        </member>
+        <member name="M:UltEvents.ObjectPicker.RemoveDuplicateSuggestions``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Removes any duplicates of the first few elements in 'options' (from 0 to 'suggestions') from anywhere later
+            in the list.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgumentDrawer.DrawEnumMaskField(UnityEngine.Rect,UnityEngine.GUIContent,System.Int32,System.Type)">
+            <summary>
+            Draw a field with a dropdown box for selecting values in a flags enum.
+            <para></para>
+            This method works properly for some enum configurations not supported by EditorGUI.EnumMaskField or EditorGUI.EnumMaskPopup.
+            <para></para>
+            This method only supports enums with int as their underlying type.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventDrawer.DrawDelegate(UnityEngine.Rect,System.Delegate)">
+            <summary>[Editor-Only]
+            Draw the target and name of the specified <see cref="T:System.Delegate"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.CollisionEvent2D">
+            <summary>
+            An event that takes a single <see cref="T:UnityEngine.Collision2D"/> parameter.
+            </summary>
+        </member>
+        <member name="T:UltEvents.CollisionEvents2D">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> 2D collision events:
+            OnCollisionEnter2D, OnCollisionStay2D, and OnCollisionExit2D.
+            </summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents2D.CollisionEnterEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents2D.OnCollisionEnter2D(UnityEngine.Collision2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents2D.OnCollisionEnter2D(UnityEngine.Collision2D)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents2D.CollisionEnterEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents2D.CollisionStayEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents2D.OnCollisionStay2D(UnityEngine.Collision2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents2D.OnCollisionStay2D(UnityEngine.Collision2D)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents2D.CollisionStayEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents2D.CollisionExitEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents2D.OnCollisionExit2D(UnityEngine.Collision2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents2D.OnCollisionExit2D(UnityEngine.Collision2D)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents2D.CollisionExitEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.CollisionEvent3D">
+            <summary>
+            An event that takes a single <see cref="T:UnityEngine.Collision"/> parameter.
+            </summary>
+        </member>
+        <member name="T:UltEvents.CollisionEvents3D">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> collision events:
+            OnCollisionEnter, OnCollisionStay, and OnCollisionExit.
+            </summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents3D.CollisionEnterEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents3D.OnCollisionEnter(UnityEngine.Collision)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents3D.OnCollisionEnter(UnityEngine.Collision)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents3D.CollisionEnterEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents3D.CollisionStayEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents3D.OnCollisionStay(UnityEngine.Collision)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents3D.OnCollisionStay(UnityEngine.Collision)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents3D.CollisionStayEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.CollisionEvents3D.CollisionExitEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.CollisionEvents3D.OnCollisionExit(UnityEngine.Collision)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.CollisionEvents3D.OnCollisionExit(UnityEngine.Collision)">
+            <summary>Invokes <see cref="P:UltEvents.CollisionEvents3D.CollisionExitEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.DelayedUltEventHolder">
+            <summary>
+            A component which encapsulates a single <see cref="T:UltEvents.UltEventBase"/> with a delay before its invocation.
+            </summary>
+        </member>
+        <member name="P:UltEvents.DelayedUltEventHolder.Delay">
+            <summary>
+            The number of seconds that will pass between calling <see cref="M:UltEvents.DelayedUltEventHolder.Invoke"/> and the event actually being invoked.
+            </summary>
+        </member>
+        <member name="M:UltEvents.DelayedUltEventHolder.Invoke">
+            <summary>Waits for <see cref="P:UltEvents.DelayedUltEventHolder.Delay"/> seconds then calls Event.Invoke().</summary>
+        </member>
+        <member name="T:UltEvents.LifeCycleEvents">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> lifecycle events:
+            Awake, Start, OnEnable, OnDisable, and OnDestroy.
+            </summary>
+        </member>
+        <member name="P:UltEvents.LifeCycleEvents.AwakeEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.LifeCycleEvents.Awake"/>.</summary>
+        </member>
+        <member name="M:UltEvents.LifeCycleEvents.Awake">
+            <summary>Invokes <see cref="P:UltEvents.LifeCycleEvents.AwakeEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.LifeCycleEvents.StartEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.LifeCycleEvents.Start"/>.</summary>
+        </member>
+        <member name="M:UltEvents.LifeCycleEvents.Start">
+            <summary>Invokes <see cref="P:UltEvents.LifeCycleEvents.StartEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.LifeCycleEvents.EnableEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.LifeCycleEvents.OnEnable"/>.</summary>
+        </member>
+        <member name="M:UltEvents.LifeCycleEvents.OnEnable">
+            <summary>Invokes <see cref="P:UltEvents.LifeCycleEvents.EnableEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.LifeCycleEvents.DisableEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.LifeCycleEvents.OnDisable"/>.</summary>
+        </member>
+        <member name="M:UltEvents.LifeCycleEvents.OnDisable">
+            <summary>Invokes <see cref="P:UltEvents.LifeCycleEvents.DisableEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.LifeCycleEvents.DestroyEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.LifeCycleEvents.OnDestroy"/>.</summary>
+        </member>
+        <member name="M:UltEvents.LifeCycleEvents.OnDestroy">
+            <summary>Invokes <see cref="P:UltEvents.LifeCycleEvents.DestroyEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.TriggerEvent2D">
+            <summary>
+            An event that takes a single <see cref="T:UnityEngine.Collider2D"/> parameter.
+            </summary>
+        </member>
+        <member name="T:UltEvents.TriggerEvents2D">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> 2D trigger events:
+            OnTriggerEnter2D, OnTriggerStay2D, and OnTriggerExit2D.
+            </summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents2D.TriggerEnterEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents2D.OnTriggerEnter2D(UnityEngine.Collider2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents2D.OnTriggerEnter2D(UnityEngine.Collider2D)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents2D.TriggerEnterEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents2D.TriggerStayEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents2D.OnTriggerStay2D(UnityEngine.Collider2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents2D.OnTriggerStay2D(UnityEngine.Collider2D)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents2D.TriggerStayEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents2D.TriggerExitEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents2D.OnTriggerExit2D(UnityEngine.Collider2D)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents2D.OnTriggerExit2D(UnityEngine.Collider2D)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents2D.TriggerExitEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.TriggerEvent3D">
+            <summary>
+            An event that takes a single <see cref="T:UnityEngine.Collider"/> parameter.
+            </summary>
+        </member>
+        <member name="T:UltEvents.TriggerEvents3D">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> trigger events:
+            OnTriggerEnter, OnTriggerStay, and OnTriggerExit.
+            </summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents3D.TriggerEnterEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents3D.OnTriggerEnter(UnityEngine.Collider)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents3D.OnTriggerEnter(UnityEngine.Collider)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents3D.TriggerEnterEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents3D.TriggerStayEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents3D.OnTriggerStay(UnityEngine.Collider)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents3D.OnTriggerStay(UnityEngine.Collider)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents3D.TriggerStayEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.TriggerEvents3D.TriggerExitEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.TriggerEvents3D.OnTriggerExit(UnityEngine.Collider)"/>.</summary>
+        </member>
+        <member name="M:UltEvents.TriggerEvents3D.OnTriggerExit(UnityEngine.Collider)">
+            <summary>Invokes <see cref="P:UltEvents.TriggerEvents3D.TriggerExitEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.UltEventHolder">
+            <summary>
+            A component which encapsulates a single <see cref="T:UltEvents.UltEvent"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEventHolder.Event">
+            <summary>The encapsulated event.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventHolder.Invoke">
+            <summary>Calls Event.Invoke().</summary>
+        </member>
+        <member name="T:UltEvents.UpdateEvents">
+            <summary>
+            Holds <see cref="T:UltEvents.UltEvent"/>s which are called by various <see cref="T:UnityEngine.MonoBehaviour"/> update events:
+            Update, LateUpdate, and FixedUpdate.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UpdateEvents.UpdateEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.UpdateEvents.Update"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UpdateEvents.Update">
+            <summary>Invokes <see cref="P:UltEvents.UpdateEvents.UpdateEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UpdateEvents.LateUpdateEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.UpdateEvents.LateUpdate"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UpdateEvents.LateUpdate">
+            <summary>Invokes <see cref="P:UltEvents.UpdateEvents.LateUpdateEvent"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UpdateEvents.FixedUpdateEvent">
+            <summary>This event is invoked by <see cref="M:UltEvents.UpdateEvents.FixedUpdate"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UpdateEvents.FixedUpdate">
+            <summary>Invokes <see cref="P:UltEvents.UpdateEvents.FixedUpdateEvent"/>.</summary>
+        </member>
+        <member name="T:UltEvents.PersistentArgumentType">
+            <summary>The type identifier of a <see cref="T:UltEvents.PersistentArgument"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.None">
+            <summary>Type not set.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Bool">
+            <summary><see cref="T:System.Boolean"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.String">
+            <summary><see cref="T:System.String"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Int">
+            <summary><see cref="T:System.Int32"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Enum">
+            <summary>Any kind of <see cref="T:System.Enum"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Float">
+            <summary><see cref="T:System.Single"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Vector2">
+            <summary><see cref="T:UnityEngine.Vector2"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Vector3">
+            <summary><see cref="T:UnityEngine.Vector3"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Vector4">
+            <summary><see cref="T:UnityEngine.Vector4"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Quaternion">
+            <summary><see cref="T:UnityEngine.Quaternion"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Color">
+            <summary><see cref="T:UnityEngine.Color"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Color32">
+            <summary><see cref="T:UnityEngine.Color32"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Rect">
+            <summary><see cref="T:UnityEngine.Rect"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Object">
+            <summary><see cref="T:UnityEngine.Object"/>.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.Parameter">
+            <summary>The value of a parameter passed to the event.</summary>
+        </member>
+        <member name="F:UltEvents.PersistentArgumentType.ReturnValue">
+            <summary>The return value by a previous <see cref="T:UltEvents.PersistentCall"/>.</summary>
+        </member>
+        <member name="T:UltEvents.PersistentArgument">
+            <summary>
+            Encapsulates a variable so it can be serialized for <see cref="T:UltEvents.UltEventBase"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.#ctor">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentArgument"/> with default values.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.#ctor(System.Type)">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentArgument"/> with the specified 'type'.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Type">
+            <summary>The type identifier of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.SystemType">
+            <summary>
+            The <see cref="T:System.Type"/> of this argument.
+            </summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Bool">
+            <summary>The <see cref="T:System.Boolean"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.String">
+            <summary>The <see cref="T:System.String"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Int">
+            <summary>The <see cref="T:System.Int32"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Enum">
+            <summary>The <see cref="T:System.Enum"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Float">
+            <summary>The <see cref="T:System.Single"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Vector2">
+            <summary>The <see cref="T:UnityEngine.Vector2"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Vector3">
+            <summary>The <see cref="T:UnityEngine.Vector3"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Vector4">
+            <summary>The <see cref="T:UnityEngine.Vector4"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Quaternion">
+            <summary>The <see cref="T:UnityEngine.Quaternion"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Color">
+            <summary>The <see cref="T:UnityEngine.Color"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Color32">
+            <summary>The <see cref="T:UnityEngine.Color32"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Rect">
+            <summary>The <see cref="T:UnityEngine.Rect"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Object">
+            <summary>The <see cref="T:UnityEngine.Object"/> value of this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Parameter">
+            <summary>The value of a parameter passed into the <see cref="T:UltEvents.PersistentCall"/> (see <see cref="P:UltEvents.PersistentArgument.ParameterIndex"/>.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.ParameterIndex">
+            <summary>The index of the parameter passed into the <see cref="T:UltEvents.PersistentCall"/>.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.ReturnedValue">
+            <summary>The value returned by a previous <see cref="T:UltEvents.PersistentCall"/> (see <see cref="P:UltEvents.PersistentArgument.ReturnedValueIndex"/>.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.ReturnedValueIndex">
+            <summary>The index of the <see cref="T:UltEvents.PersistentCall"/> which returns the value for this argument.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentArgument.Value">
+            <summary>The value of this argument.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.GetArgumentType(UltEvents.PersistentArgumentType,System.Single,System.String)">
+            <summary>
+            Returns the <see cref="T:System.Type"/> associated with the specified <see cref="T:UltEvents.PersistentArgumentType"/>.
+            <para></para>
+            If the 'type' can be inherited (such as an Enum or Object), the 'assemblyQualifiedName' will be used to get the type.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.GetArgumentType(System.Type,System.String@,System.Int32@)">
+            <summary>
+            Returns the <see cref="T:UltEvents.PersistentArgumentType"/> associated with the specified <see cref="T:System.Type"/>.
+            <para></para>
+            If the 'type' can be inherited (such as an Enum or Object), the 'assemblyQualifiedName' will be assigned as well (otherwise null).
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.Clone">
+            <summary>Creates an exact copy of this argument.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentArgument.ToString">
+            <summary>Returns a string which describes this argument.</summary>
+        </member>
+        <member name="T:UltEvents.PersistentCall">
+            <summary>
+            Encapsulates a delegate so it can be serialized for <see cref="T:UltEvents.UltEventBase"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.PersistentCall.Target">
+            <summary>The object on which the persistent method is called.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentCall.MethodName">
+            <summary>The name of the persistent method.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentCall.PersistentArguments">
+            <summary>The arguments which are passed to the method when it is invoked.</summary>
+        </member>
+        <member name="P:UltEvents.PersistentCall.Method">
+            <summary>The method which this call encapsulates.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.#ctor">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentCall"/> with default values.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.#ctor(System.Reflection.MethodInfo,UnityEngine.Object)">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentCall"/> to serialize the specified 'method'.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.#ctor(System.Delegate)">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentCall"/> to serialize the specified 'method'.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.#ctor(System.Action)">
+            <summary>Constructs a new <see cref="T:UltEvents.PersistentCall"/> to serialize the specified 'method'.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetMethod(System.Reflection.MethodInfo,UnityEngine.Object)">
+            <summary>Sets the method which this call encapsulates.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetMethod(System.Delegate)">
+            <summary>Sets the delegate which this call encapsulates.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetMethod(System.Action)">
+            <summary>Sets the delegate which this call encapsulates.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.Invoke">
+            <summary>
+            Acquire a delegate based on the <see cref="P:UltEvents.PersistentCall.Target"/> and <see cref="P:UltEvents.PersistentCall.MethodName"/> and invoke it.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetArguments(System.Object)">
+            <summary>Sets the value of the first persistent argument.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetArguments(System.Object,System.Object)">
+            <summary>Sets the value of the first and second persistent arguments.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetArguments(System.Object,System.Object,System.Object)">
+            <summary>Sets the value of the first, second, and third persistent arguments.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.SetArguments(System.Object,System.Object,System.Object,System.Object)">
+            <summary>Sets the value of the first, second, third, and fourth persistent arguments.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.IsSupportedNative(System.Type)">
+            <summary>
+            Returns true if the specified 'type' can be represented by a non-linked <see cref="T:UltEvents.PersistentArgument"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.IsSupportedNative(System.Reflection.ParameterInfo[])">
+            <summary>
+            Returns true if the type of each of the 'parameters' can be represented by a non-linked <see cref="T:UltEvents.PersistentArgument"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.CopyFrom(UltEvents.PersistentCall)">
+            <summary>Copies the contents of the 'target' call to this call.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.ToString">
+            <summary>Returns a description of this call.</summary>
+        </member>
+        <member name="M:UltEvents.PersistentCall.ToString(System.Text.StringBuilder)">
+            <summary>Appends a description of this call.</summary>
+        </member>
+        <member name="T:UltEvents.UltEvent">
+            <summary>
+            A serializable event with no parameters which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent.persistentCalls">
+            <summary>
+            Delegates registered to this event are serialized as <see cref="T:UltEvents.PersistentCall"/>s and are invoked by
+            <see cref="M:UltEvents.UltEvent.Invoke"/> before all <see cref="E:UltEvents.UltEvent.dynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent.dynamicCalls">
+            <summary>
+            Delegates registered here are invoked by <see cref="M:UltEvents.UltEvent.Invoke"/> after all <see cref="E:UltEvents.UltEvent.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEvent.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            Delegates registered here are called by <see cref="M:UltEvents.UltEvent.Invoke"/> after all <see cref="E:UltEvents.UltEvent.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.op_Addition(UltEvents.UltEvent,System.Action)">
+            <summary>
+            Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.op_Subtraction(UltEvents.UltEvent,System.Action)">
+            <summary>
+            If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.op_Implicit(System.Action)~UltEvents.UltEvent">
+            <summary>
+            Creates a new <see cref="T:UltEvents.UltEventBase"/> and adds 'method' to its <see cref="E:UltEvents.UltEvent.persistentCalls"/> (if in edit
+            mode), or <see cref="E:UltEvents.UltEvent.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.AddDynamicCall(UltEvents.UltEvent@,System.Action)">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent.dynamicCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.RemoveDynamicCall(UltEvents.UltEvent@,System.Action)">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent.dynamicCalls"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UltEvent.ParameterTypes">
+            <summary>The types of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.Invoke">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent.dynamicCalls"/>.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent.InvokeSafe"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX(UltEvents.UltEvent)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent.InvokeSafe">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent.dynamicCalls"/> inside a try/catch block
+            which logs any exceptions that are thrown.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent.Invoke"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX(UltEvents.UltEvent)"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.UltEvent`1">
+            <summary>
+            A serializable event with 1 parameter which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent`1"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`1.persistentCalls">
+            <summary>
+            Delegates registered to this event are serialized as <see cref="T:UltEvents.PersistentCall"/>s and are invoked by
+            <see cref="M:UltEvents.UltEvent`1.Invoke(`0)"/> before all <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`1.dynamicCalls">
+            <summary>
+            Delegates registered here are invoked by <see cref="M:UltEvents.UltEvent`1.Invoke(`0)"/> after all <see cref="E:UltEvents.UltEvent`1.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`1.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            Delegates registered here are called by <see cref="M:UltEvents.UltEvent`1.Invoke(`0)"/> after all <see cref="E:UltEvents.UltEvent`1.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.op_Addition(UltEvents.UltEvent{`0},System.Action{`0})">
+            <summary>
+            Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`1.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.op_Subtraction(UltEvents.UltEvent{`0},System.Action{`0})">
+            <summary>
+            If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`1.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.op_Implicit(System.Action{`0})~UltEvents.UltEvent{`0}">
+            <summary>
+            Creates a new <see cref="T:UltEvents.UltEventBase"/> and adds 'method' to its <see cref="E:UltEvents.UltEvent`1.persistentCalls"/> (if in edit
+            mode), or <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.AddDynamicCall(UltEvents.UltEvent{`0}@,System.Action{`0})">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.RemoveDynamicCall(UltEvents.UltEvent{`0}@,System.Action{`0})">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`1.ParameterTypes">
+            <summary>The types of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.Invoke(`0)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`1.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/>.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`1.InvokeSafe(`0)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``1(UltEvents.UltEvent{``0},``0)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`1.InvokeSafe(`0)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`1.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`1.dynamicCalls"/> inside a try/catch block
+            which logs any exceptions that are thrown.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`1.Invoke(`0)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``1(UltEvents.UltEvent{``0},``0)"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.UltEvent`2">
+            <summary>
+            A serializable event with 2 parameters which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent`2"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`2.persistentCalls">
+            <summary>
+            Delegates registered to this event are serialized as <see cref="T:UltEvents.PersistentCall"/>s and are invoked by
+            <see cref="M:UltEvents.UltEvent`2.Invoke(`0,`1)"/> before all <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`2.dynamicCalls">
+            <summary>
+            Delegates registered here are invoked by <see cref="M:UltEvents.UltEvent`2.Invoke(`0,`1)"/> after all <see cref="E:UltEvents.UltEvent`2.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`2.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            Delegates registered here are called by <see cref="M:UltEvents.UltEvent`2.Invoke(`0,`1)"/> after all <see cref="E:UltEvents.UltEvent`2.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.op_Addition(UltEvents.UltEvent{`0,`1},System.Action{`0,`1})">
+            <summary>
+            Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`2.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.op_Subtraction(UltEvents.UltEvent{`0,`1},System.Action{`0,`1})">
+            <summary>
+            If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`2.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.op_Implicit(System.Action{`0,`1})~UltEvents.UltEvent{`0,`1}">
+            <summary>
+            Creates a new <see cref="T:UltEvents.UltEventBase"/> and adds 'method' to its <see cref="E:UltEvents.UltEvent`2.persistentCalls"/> (if in edit
+            mode), or <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.AddDynamicCall(UltEvents.UltEvent{`0,`1}@,System.Action{`0,`1})">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.RemoveDynamicCall(UltEvents.UltEvent{`0,`1}@,System.Action{`0,`1})">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`2.ParameterTypes">
+            <summary>The types of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.Invoke(`0,`1)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`2.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/>.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`2.InvokeSafe(`0,`1)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``2(UltEvents.UltEvent{``0,``1},``0,``1)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`2.InvokeSafe(`0,`1)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`2.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`2.dynamicCalls"/> inside a try/catch block
+            which logs any exceptions that are thrown.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`2.Invoke(`0,`1)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``2(UltEvents.UltEvent{``0,``1},``0,``1)"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.UltEvent`3">
+            <summary>
+            A serializable event with 3 parameters which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent`3"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`3.persistentCalls">
+            <summary>
+            Delegates registered to this event are serialized as <see cref="T:UltEvents.PersistentCall"/>s and are invoked by
+            <see cref="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)"/> before all <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`3.dynamicCalls">
+            <summary>
+            Delegates registered here are invoked by <see cref="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)"/> after all <see cref="E:UltEvents.UltEvent`3.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`3.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            Delegates registered here are called by <see cref="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)"/> after all <see cref="E:UltEvents.UltEvent`3.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.op_Addition(UltEvents.UltEvent{`0,`1,`2},System.Action{`0,`1,`2})">
+            <summary>
+            Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`3.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.op_Subtraction(UltEvents.UltEvent{`0,`1,`2},System.Action{`0,`1,`2})">
+            <summary>
+            If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`3.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.op_Implicit(System.Action{`0,`1,`2})~UltEvents.UltEvent{`0,`1,`2}">
+            <summary>
+            Creates a new <see cref="T:UltEvents.UltEventBase"/> and adds 'method' to its <see cref="E:UltEvents.UltEvent`3.persistentCalls"/> (if in edit
+            mode), or <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.AddDynamicCall(UltEvents.UltEvent{`0,`1,`2}@,System.Action{`0,`1,`2})">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.RemoveDynamicCall(UltEvents.UltEvent{`0,`1,`2}@,System.Action{`0,`1,`2})">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`3.ParameterTypes">
+            <summary>The types of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`3.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/>.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`3.InvokeSafe(`0,`1,`2)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``3(UltEvents.UltEvent{``0,``1,``2},``0,``1,``2)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`3.InvokeSafe(`0,`1,`2)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`3.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`3.dynamicCalls"/> inside a try/catch block
+            which logs any exceptions that are thrown.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``3(UltEvents.UltEvent{``0,``1,``2},``0,``1,``2)"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.UltEvent`4">
+            <summary>
+            A serializable event with 4 parameters which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent`4"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`4.persistentCalls">
+            <summary>
+            Delegates registered to this event are serialized as <see cref="T:UltEvents.PersistentCall"/>s and are invoked by
+            <see cref="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)"/> before all <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="E:UltEvents.UltEvent`4.dynamicCalls">
+            <summary>
+            Delegates registered here are invoked by <see cref="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)"/> after all <see cref="E:UltEvents.UltEvent`4.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`4.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            Delegates registered here are called by <see cref="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)"/> after all <see cref="E:UltEvents.UltEvent`4.persistentCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.op_Addition(UltEvents.UltEvent{`0,`1,`2,`3},System.Action{`0,`1,`2,`3})">
+            <summary>
+            Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`4.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.op_Subtraction(UltEvents.UltEvent{`0,`1,`2,`3},System.Action{`0,`1,`2,`3})">
+            <summary>
+            If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`4.persistentCalls"/> (if in edit mode) or
+            <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.op_Implicit(System.Action{`0,`1,`2,`3})~UltEvents.UltEvent{`0,`1,`2,`3}">
+            <summary>
+            Creates a new <see cref="T:UltEvents.UltEventBase"/> and adds 'method' to its <see cref="E:UltEvents.UltEvent`4.persistentCalls"/> (if in edit
+            mode), or <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/> (in play mode and at runtime).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.AddDynamicCall(UltEvents.UltEvent{`0,`1,`2,`3}@,System.Action{`0,`1,`2,`3})">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.RemoveDynamicCall(UltEvents.UltEvent{`0,`1,`2,`3}@,System.Action{`0,`1,`2,`3})">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/>.</summary>
+        </member>
+        <member name="P:UltEvents.UltEvent`4.ParameterTypes">
+            <summary>The types of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`4.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/>.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`4.InvokeSafe(`0,`1,`2,`3)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``4(UltEvents.UltEvent{``0,``1,``2,``3},``0,``1,``2,``3)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEvent`4.InvokeSafe(`0,`1,`2,`3)">
+            <summary>
+            Invokes all <see cref="E:UltEvents.UltEvent`4.persistentCalls"/> then all <see cref="E:UltEvents.UltEvent`4.dynamicCalls"/> inside a try/catch block
+            which logs any exceptions that are thrown.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)"/> and <seealso cref="M:UltEvents.UltEventUtils.InvokeX``4(UltEvents.UltEvent{``0,``1,``2,``3},``0,``1,``2,``3)"/>.
+            </summary>
+        </member>
+        <member name="T:UltEvents.UltEventBase">
+            <summary>
+            A serializable event which can be viewed and configured in the inspector.
+            <para></para>
+            This is a more versatile and user friendly implementation than <see cref="T:UnityEngine.Events.UnityEvent"/>.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEventBase.PersistentCalls">
+            <summary>
+            The serialized method and parameter details of this event.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEventBase.DynamicCalls">
+            <summary>
+            The non-serialized method and parameter details of this event.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.OnDynamicCallsChanged">
+            <summary>
+            Clears the cached invocation list of <see cref="P:UltEvents.UltEventBase.DynamicCalls"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.AddPersistentCall``1(``0@,System.Delegate)">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="P:UltEvents.UltEventBase.PersistentCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.AddPersistentCall``1(``0@,System.Action)">
+            <summary>Ensures that 'e' isn't null and adds 'method' to its <see cref="P:UltEvents.UltEventBase.PersistentCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.RemovePersistentCall(UltEvents.UltEventBase@,System.Delegate)">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="P:UltEvents.UltEventBase.PersistentCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.RemovePersistentCall(UltEvents.UltEventBase@,System.Action)">
+            <summary>If 'e' isn't null, this method removes 'method' from its <see cref="P:UltEvents.UltEventBase.PersistentCalls"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.AddPersistentCall(System.Delegate)">
+            <summary>
+            Add the specified 'method to the persistent call list.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.RemovePersistentCall(System.Delegate)">
+            <summary>
+            Remove the specified 'method from the persistent call list.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.InvokePersistentCalls">
+            <summary>Invokes all <see cref="P:UltEvents.UltEventBase.PersistentCalls"/> registered to this event.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.CacheParameter(System.Object)">
+            <summary>
+            Sets the number of parameters passed to this event.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEventBase.ParameterTypes">
+            <summary>The type of each of this event's parameters.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.Clear">
+            <summary>
+            Clears all <see cref="P:UltEvents.UltEventBase.PersistentCalls"/> and <see cref="P:UltEvents.UltEventBase.DynamicCalls"/> registered to this event.
+            </summary>
+        </member>
+        <member name="P:UltEvents.UltEventBase.HasCalls">
+            <summary>
+            Returns true if this event has any <see cref="P:UltEvents.UltEventBase.PersistentCalls"/> or <see cref="P:UltEvents.UltEventBase.DynamicCalls"/> registered.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.CopyFrom(UltEvents.UltEventBase)">
+            <summary>Copies the contents of this the 'target' event to this event.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.ToString">
+            <summary>Returns a description of this event.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventBase.ToString(System.Text.StringBuilder)">
+            <summary>Appends a description of this event.</summary>
+        </member>
+        <member name="T:UltEvents.ArrayCache`1">
+            <summary>
+            Stores arrays of various sizes so they can be reused without garbage collection.
+            </summary>
+        </member>
+        <member name="M:UltEvents.ArrayCache`1.GetTempArray(System.Int32)">
+            <summary>
+            Get a cached array of the specified size for temporary use. The array must be used and discarded
+            immediately as it may be reused by anything else that calls this method with the same 'length'.
+            </summary>
+        </member>
+        <member name="T:UltEvents.SerializedPropertyAccessor">
+            <summary>[Editor-Only]
+            A wrapper for <see cref="T:UnityEditor.SerializedProperty"/> that allows you to access the underlying values and fields.
+            </summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetValue(UnityEditor.SerializedProperty,System.Object)">
+            <summary>[Editor-Only] Gets the value of the specified <see cref="T:UnityEditor.SerializedProperty"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetValue(UnityEditor.SerializedProperty)">
+            <summary>[Editor-Only] Gets the value of the <see cref="T:UnityEditor.SerializedProperty"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetValue``1(UnityEditor.SerializedProperty)">
+            <summary>[Editor-Only] Gets the value of the <see cref="T:UnityEditor.SerializedProperty"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetValues``1(UnityEditor.SerializedProperty)">
+            <summary>[Editor-Only] Gets the value of the <see cref="T:UnityEditor.SerializedProperty"/> for each of its target objects.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.SetValue(UnityEditor.SerializedProperty,System.Object,System.Object)">
+            <summary>[Editor-Only] Sets the value of the specified <see cref="T:UnityEditor.SerializedProperty"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.SetValue(UnityEditor.SerializedProperty,System.Object)">
+            <summary>[Editor-Only] Sets the value of the <see cref="T:UnityEditor.SerializedProperty"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.ModifyValues``1(UnityEditor.SerializedProperty,System.Action{``0},System.String)">
+            <summary>
+            Calls the specified 'method' for each of the underlying values of the 'property' (in case it represents
+            multiple selected objects) and records an undo step for any modifications made.
+            </summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.RecordUndo(UnityEditor.SerializedProperty,System.String)">
+            <summary>
+            Records the state of the specified 'property' so it can be undone.
+            </summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.OnPropertyChanged(UnityEditor.SerializedProperty)">
+            <summary>
+            Updates the specified 'property' and marks its target objects as dirty so any changes to a prefab will be saved.
+            </summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetPropertyType(System.Type)">
+            <summary>
+            Returns the <see cref="T:UnityEditor.SerializedPropertyType"/> that represents fields of the specified 'type'.
+            </summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetAccessor(UnityEditor.SerializedProperty)">
+            <summary>
+            Gets a <see cref="T:UltEvents.SerializedPropertyAccessor"/> that can be used to access the details of the specified 'property'.
+            </summary>
+        </member>
+        <member name="F:UltEvents.SerializedPropertyAccessor.Parent">
+            <summary>The accessor for the field which this accessor is nested inside.</summary>
+        </member>
+        <member name="F:UltEvents.SerializedPropertyAccessor.Field">
+            <summary>The field wrapped by this accessor.</summary>
+        </member>
+        <member name="F:UltEvents.SerializedPropertyAccessor.FieldType">
+            <summary>The type of the wrapped <see cref="F:UltEvents.SerializedPropertyAccessor.Field"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.#ctor(UltEvents.SerializedPropertyAccessor,System.Reflection.FieldInfo,System.Type)">
+            <summary>Constructs a new <see cref="T:UltEvents.SerializedPropertyAccessor"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.GetValue(System.Object)">
+            <summary>Gets the value of the from the <see cref="F:UltEvents.SerializedPropertyAccessor.Parent"/> (if there is one), then uses it to get the value from the <see cref="F:UltEvents.SerializedPropertyAccessor.Field"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.SetValue(System.Object,System.Object)">
+            <summary>Gets the value of the from the <see cref="F:UltEvents.SerializedPropertyAccessor.Parent"/> (if there is one), then uses it to set the value from the <see cref="F:UltEvents.SerializedPropertyAccessor.Field"/>.</summary>
+        </member>
+        <member name="M:UltEvents.SerializedPropertyAccessor.ToString">
+            <summary>Returns a description of this accessor's path.</summary>
+        </member>
+        <member name="T:UltEvents.UltEventUtils">
+            <summary>Various utility methods used by <see cref="N:UltEvents"/>.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.InvokeX(UltEvents.UltEvent)">
+            <summary>
+            Calls e.Invoke if it isn't null.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent.Invoke"/> and <seealso cref="M:UltEvents.UltEvent.InvokeSafe"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.InvokeX``1(UltEvents.UltEvent{``0},``0)">
+            <summary>
+            Calls e.Invoke if it isn't null.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`1.Invoke(`0)"/> and <seealso cref="M:UltEvents.UltEvent`1.InvokeSafe(`0)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.InvokeX``2(UltEvents.UltEvent{``0,``1},``0,``1)">
+            <summary>
+            Calls e.Invoke if it isn't null.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`2.Invoke(`0,`1)"/> and <seealso cref="M:UltEvents.UltEvent`2.InvokeSafe(`0,`1)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.InvokeX``3(UltEvents.UltEvent{``0,``1,``2},``0,``1,``2)">
+            <summary>
+            Calls e.Invoke if it isn't null.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`3.Invoke(`0,`1,`2)"/> and <seealso cref="M:UltEvents.UltEvent`3.InvokeSafe(`0,`1,`2)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.InvokeX``4(UltEvents.UltEvent{``0,``1,``2,``3},``0,``1,``2,``3)">
+            <summary>
+            Calls e.Invoke if it isn't null.
+            <para></para>
+            See also: <seealso cref="M:UltEvents.UltEvent`4.Invoke(`0,`1,`2,`3)"/> and <seealso cref="M:UltEvents.UltEvent`4.InvokeSafe(`0,`1,`2,`3)"/>.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.GetNameCS(System.Type,System.Boolean)">
+            <summary>
+            Returns the name of a 'type' as it would appear in C# code.
+            <para></para>
+            For example, typeof(List&lt;float&gt;).FullName would give you:
+            System.Collections.Generic.List`1[[System.Single, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+            <para></para>
+            This method would instead return System.Collections.Generic.List&lt;float&gt; if 'fullName' is true, or
+            just List&lt;float&gt; if it is false.
+            <para></para>
+            Note that all returned values are stored in a dictionary to speed up repeated use.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.AppendNameAndGenericArguments(System.Text.StringBuilder,System.Type,System.Boolean,System.Int32)">
+            <summary>
+            Appends the generic arguments of 'type' (after skipping the specified number).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.GetNameCS(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Returns the full name of a 'member' as it would appear in C# code.
+            <para></para>
+            For example, passing this method info in as its own parameter would return "<see cref="T:UltEvents.UltEventUtils"/>.GetNameCS".
+            <para></para>
+            Note that when 'member' is a <see cref="T:System.Type"/>, this method calls <see cref="M:UltEvents.UltEventUtils.GetNameCS(System.Type,System.Boolean)"/> instead.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.AppendNameCS(System.Text.StringBuilder,System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Appends the full name of a 'member' as it would appear in C# code.
+            <para></para>
+            For example, passing this method info in as its own parameter would append "<see cref="T:UltEvents.UltEventUtils"/>.AppendName".
+            <para></para>
+            Note that when 'member' is a <see cref="T:System.Type"/>, this method calls <see cref="M:UltEvents.UltEventUtils.GetNameCS(System.Type,System.Boolean)"/> instead.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.DeepToString(System.Collections.IEnumerable,System.String)">
+            <summary>Returns a string containing the value of each element in 'collection'.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.DeepToString(System.Collections.IEnumerable)">
+            <summary>Returns a string containing the value of each element in 'collection' (each on a new line).</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.AppendDeepToString(System.Text.StringBuilder,System.Collections.IEnumerator,System.String)">
+            <summary>Each element returned by 'enumerator' is appended to 'text'.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.DeepToString(System.Collections.IEnumerator,System.String)">
+            <summary>Returns a string containing the value of each element in 'enumerator'.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.DeepToString(System.Collections.IEnumerator)">
+            <summary>Returns a string containing the value of each element in 'enumerator' (each on a new line).</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnToString(System.Object)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnBool(System.Boolean)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnString(System.String)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnInt(System.Int32)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnFloat(System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnVector2(System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnVector3(System.Single,System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnVector4(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnEuler(System.Single,System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnQuaternion(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnColor(UnityEngine.Color)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnColor(UnityEngine.Color32)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.ReturnRect(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Constructs a value for use as a parameter in a subsequent call.</summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.CalculateLevenshteinDistance(System.String,System.String)">
+            <summary>
+            Calculate the number of removals, inserts, and replacements needed to turn 'a' into 'b'.
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.StableInsertionSort``1(System.Collections.Generic.IList{``0},System.Comparison{``0})">
+            <summary>
+            Sorts 'list', maintaining the order of any elements with an identical comparison
+            (unlike the standard <see cref="M:System.Collections.Generic.List`1.Sort(System.Comparison{`0})"/> method).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.StableInsertionSort``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Sorts 'list', maintaining the order of any elements with an identical comparison
+            (unlike the standard <see cref="M:System.Collections.Generic.List`1.Sort"/> method).
+            </summary>
+        </member>
+        <member name="M:UltEvents.UltEventUtils.GetPlacementName(System.Int32)">
+            <summary>
+            Translates a zero based index to a placement name: 0 = "1st", 1 = "2nd", etc.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,329 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 421568}
+  - component: {fileID: 114753395995865834}
+  - component: {fileID: 11421558}
+  - component: {fileID: 11421562}
+  - component: {fileID: 11421560}
+  - component: {fileID: 11421564}
+  - component: {fileID: 11421566}
+  - component: {fileID: 11421568}
+  - component: {fileID: 13221568}
+  - component: {fileID: 114184071637145144}
+  m_Layer: 0
+  m_Name: FPS Counter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &421568
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11421558
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2147088620, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 1.0
+  _moved: 1
+  _foldout: 1
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 114184071637145144}
+  editor: {fileID: 0}
+  _id: Program5221
+  _actions:
+  - {fileID: 11421560}
+  _parameters: []
+  _showParameters: 0
+  _showSettings: 0
+  _actionsFoldout: 1
+  _ignorePause: 0
+--- !u!114 &11421560
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -514907287, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 0.8.8b
+  _moved: 1
+  _foldout: 1
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 11421558}
+  editor: {fileID: 0}
+  _caption: 
+  _breakpoint: 0
+  _target: {fileID: 13221568}
+  _targetVar: {fileID: 0}
+  _property: 12
+  _alignmentValue: 0
+  _anchorValue: 0
+  _colorValue: {r: 1, g: 1, b: 1, a: 1}
+  _enabledValue: 1
+  _fontValue: {fileID: 0}
+  _fontSizeValue: 0
+  _fontStyleValue: 0
+  _lineSpacingValue: 0
+  _pixelOffsetValue: {x: 0, y: 0}
+  _richTextValue: 0
+  _screenRectValue:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  _tabSizeValue: 0
+  _textValue: 
+  _valueVar: {fileID: 11427102, guid: d11065f7f98d84dd5a96e090b115e83b, type: 2}
+  _format: '{0:N}'
+  _formatVar: {fileID: 0}
+--- !u!114 &11421562
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 131294560, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 1.0
+  _moved: 1
+  _foldout: 1
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 114184071637145144}
+  editor: {fileID: 0}
+  _id: Program9818
+  _actions:
+  - {fileID: 11421566}
+  - {fileID: 11421568}
+  - {fileID: 11421564}
+  _parameters: []
+  _showParameters: 0
+  _showSettings: 1
+  _actionsFoldout: 1
+  _ignorePause: 0
+--- !u!114 &11421564
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -514907287, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 0.8.8b
+  _moved: 1
+  _foldout: 0
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 11421562}
+  editor: {fileID: 0}
+  _caption: 
+  _breakpoint: 0
+  _target: {fileID: 13221568}
+  _targetVar: {fileID: 0}
+  _property: 8
+  _alignmentValue: 0
+  _anchorValue: 0
+  _colorValue: {r: 1, g: 1, b: 1, a: 1}
+  _enabledValue: 1
+  _fontValue: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  _fontSizeValue: 16
+  _fontStyleValue: 0
+  _lineSpacingValue: 1
+  _pixelOffsetValue: {x: 10, y: 25}
+  _richTextValue: 1
+  _screenRectValue:
+    serializedVersion: 2
+    x: 10
+    y: 7
+    width: 18
+    height: 18
+  _tabSizeValue: 4
+  _textValue: 00
+  _valueVar: {fileID: 0}
+  _format: 
+  _formatVar: {fileID: 0}
+--- !u!114 &11421566
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 938558877, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 0.8.8b
+  _moved: 1
+  _foldout: 0
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 11421562}
+  editor: {fileID: 0}
+  _caption: 
+  _breakpoint: 0
+  _target: {fileID: 121568}
+  _targetVar: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentVar: {fileID: 0}
+--- !u!114 &11421568
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 145151700, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 0.8.8b
+  _moved: 1
+  _foldout: 0
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 11421562}
+  editor: {fileID: 0}
+  _caption: 
+  _breakpoint: 0
+  _target: {fileID: 421568}
+  _targetVar: {fileID: 0}
+  _space: 0
+  _spaceVar: {fileID: 0}
+  _mask: {x: 1, y: 1, z: 1}
+  _maskVar: {fileID: 0}
+  _relative: 0
+  _relativeVar: {fileID: 0}
+  _multiplier: 1
+  _multiplierVar: {fileID: 0}
+  _position: {x: 0, y: 0, z: 0}
+  _positionVar: {fileID: 0}
+--- !u!132 &13221568
+GUIText:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: FPS
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 10, y: 25}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 16
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 121568}
+  m_IsPrefabParent: 1
+--- !u!114 &114184071637145144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1528663654, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 1.0
+  _moved: 0
+  _blocks:
+  - {fileID: 114753395995865834}
+  - {fileID: 11421562}
+  - {fileID: 11421558}
+  editor: {fileID: 0}
+  _showSettings: 0
+  _displayMode: 1
+  _windowTitle: GameFlow
+  _windowMinSize: {x: 250, y: 50}
+  _windowMaxSize: {x: 600, y: 400}
+--- !u!114 &114753395995865834
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1749583841, guid: 20990ec6b45e544b0b5f28b1e0c1c96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialized: 1
+  _reset: 0
+  _version: 1.0
+  _moved: 0
+  _foldout: 1
+  _drawSeparator: 0
+  enabledInEditor: 1
+  container: {fileID: 114184071637145144}
+  editor: {fileID: 0}
+  _text: A simple FPS (Frames Per Second) counter.

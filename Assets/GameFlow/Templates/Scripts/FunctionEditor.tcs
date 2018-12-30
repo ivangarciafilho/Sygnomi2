@@ -1,0 +1,26 @@
+using GameFlow;
+using UnityEditor;
+
+namespace ${namespace} {
+
+[CustomEditor(typeof(${action}))]
+public class ${action}Editor : FunctionEditor {
+
+	// Declare properties exactly as defined in the Function subclass
+	protected SerializedProperty _number1;
+	protected SerializedProperty _number1Var;
+	protected SerializedProperty _number2;
+	protected SerializedProperty _number2Var;
+
+	// Action user interface
+	protected override void OnActionGUI() {
+		// Draws a pair of Variable-friendly numeric fields in the Inspector
+		PropertyField("Number 1", _number1, _number1Var);
+		PropertyField("Number 2", _number2, _number2Var);
+		// Draws a field for the output Variable indicating float as output type
+		OutputField<float>();
+	}
+
+}
+
+}

@@ -1,0 +1,52 @@
+using GameFlow;
+using UnityEngine;
+
+// An example showing how to implement a basic custom Condition.
+
+namespace ${namespace} {
+
+// Help summary is localized according to current system language.
+[Help("en", "Condition summary.", "context-help-url")]
+[Help("es", "Resumen condición.", "url-ayuda-contextual")]
+
+// Prevent the Condition from appearing in the Add Component menu.
+[AddComponentMenu("")]
+
+public class ${condition} : Condition {
+
+	// Declare a Variable-friendly property for the condition
+	[SerializeField]
+	int _number;
+	[SerializeField]
+	Variable _numberVar;
+
+	// Define a convenience property getter
+	public int number {
+		// Link basic-type value and Variable reference through an extension method
+		get { return _numberVar.GetValue(_number); }
+	}
+
+	public enum Comparison {
+		IsZero,
+		IsNotZero
+	}
+
+	[SerializeField]
+	Comparison _comparison;
+
+	// Code implementing the evaluation of the Condition
+	protected override bool OnEvaluate() {
+		// Evaluate according to specified comparison
+		switch (_comparison) {
+		case Comparison.IsZero:
+			return number == 0;
+		case Comparison.IsNotZero:
+			return number != 0;
+		}
+		// Default evaluation
+		return false;
+	}
+
+}
+
+}

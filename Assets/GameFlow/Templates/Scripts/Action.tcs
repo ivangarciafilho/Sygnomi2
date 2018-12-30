@@ -1,0 +1,41 @@
+using UnityEngine;
+using GameFlow;
+
+// An example showing how to implement a basic custom Action.
+
+namespace ${namespace} {
+
+// Help summary is localized according to current system language.
+[Help("en", "Action summary.", "context-help-url")]
+[Help("es", "Resumen acción.", "url-ayuda-contextual")]
+
+// Prevent the Action from appearing in the Add Component menu.
+[AddComponentMenu("")]
+
+public class ${action} : Action {
+
+	// Declare a Variable-friendly property for the action
+	[SerializeField]
+	string _yourName;
+	[SerializeField]
+	Variable _yourNameVar;
+
+	// Define a convenience property getter
+	string yourName {
+		// Link string value and Variable reference through an extension method
+		get { return _yourNameVar.GetValue(_yourName); }
+	}
+
+	// Code implementing any setup required by the action
+	protected override void OnSetup() {
+	}
+
+	// Code implementing the effect of the action
+	protected override void OnExecute() {
+		// Do something with the declared property
+		Debug.Log("Hello, " + yourName);
+	}
+${skip}
+}
+
+}

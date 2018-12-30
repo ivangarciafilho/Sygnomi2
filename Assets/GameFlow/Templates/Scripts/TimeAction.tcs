@@ -1,0 +1,31 @@
+using UnityEngine;
+using GameFlow;
+
+// An example showing how to implement a basic custom time-based Action.
+
+namespace ${namespace} {
+
+// Help summary is localized according to current system language.
+[Help("en", "Time action summary.", "context-help-url")]
+[Help("es", "Resumen acción de tiempo.", "url-ayuda-contextual")]
+
+// Prevent the Action from appearing in the Add Component menu.
+[AddComponentMenu("")]
+
+public class ${action} : TimeAction {
+
+	// Code implementing any setup required by the action
+	protected override void OnSetup() {
+	}
+
+	// Code implementing the effect of the action
+	// Executed per frame during the specified time interval (duration)
+	protected override void OnExecute() {
+		Debug.Log("Duration: " + duration);
+		Debug.Log("Elapsed Time: " + elapsedTime);
+		Debug.Log("Elapsed Unit: " + elapsedUnit);
+	}
+
+}
+
+}

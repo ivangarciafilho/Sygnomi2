@@ -1,0 +1,40 @@
+using UnityEngine;
+using GameFlow;
+
+// An example showing how to implement an Action for using in Edit mode
+
+namespace ${namespace} {
+
+// Help summary is localized according to current system language.
+[Help("en", "Action summary.", "context-help-url")]
+[Help("es", "Resumen acción.", "url-ayuda-contextual")]
+
+// Prevent the Action from appearing in the Add Component menu.
+[AddComponentMenu("")]
+
+public class ${action} : Action {
+
+	// Declare a Variable-friendly property for the action
+	[SerializeField]
+	string _yourName;
+	[SerializeField]
+	Variable _yourNameVar;
+
+	// Define a convenience property getter
+	public string yourName {
+		// Link basic-type value and Variable reference through an extension method
+		get { return _yourNameVar.GetValue(_yourName); }
+	}
+
+	// Code implementing any setup required by the action
+	protected override void OnSetup() {
+	}
+
+	// Code implementing the effect of the action (in Play mode)
+	protected override void OnExecute() {
+		// In this example the execution is delegated in the Editor script
+	}
+
+}
+
+}

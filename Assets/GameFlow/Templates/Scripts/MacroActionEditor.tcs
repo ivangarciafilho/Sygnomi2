@@ -1,0 +1,37 @@
+using GameFlow;
+using UnityEditor;
+using UnityEngine;
+
+namespace ${namespace} {
+
+[CustomEditor(typeof(${action}))]
+public class ${action}Editor : ActionEditor {
+
+	// Declare properties exactly as defined in the Action subclass
+	protected SerializedProperty _yourName;
+	protected SerializedProperty _yourNameVar;
+
+	// Action user interface
+	protected override void OnActionGUI() {
+		// Draw a text field for the property and its linked Variable property
+		PropertyField("Your Name", _yourName, _yourNameVar);
+	}
+
+	[InitializeOnLoadMethod]
+	static void Init() {
+		// Set the delegate that will handle the execution of the action in Edit mode
+		SetActionDelegate<${action}>(OnExecute);
+	}
+
+	static void OnExecute(Action action) {
+		// You can do any Editor stuff required by the action:
+		Undo.RegisterCompleteObjectUndo(action.gameObject, "${action}");
+		// Note you can still access action public properties by using casting:
+		Debug.Log("Hello, " + (action as ${action}).yourName + " (executed in Edit mode)");
+		// And of course you can execute the default (Play mode) code for the action:
+		Execute(action);
+	}
+
+}
+
+}
