@@ -1,0 +1,16 @@
+Hi,
+
+My name is Andrey, I am a creator of Polygonal Culling. 
+
+To begin work with Polygonal Culling, press "Tools/NGSTools/Polygonal Culling". You will find the instruction for work in the program.
+
+Here I want to describe the best in my opinion for opinion a method with Polygonal Culling. 
+
+You can choose Visibility Manager Type 'Mixed', deliver accuracy in 5 - 15, then in settings of Polygonal Culling to choose raysPerFrame 500 or 1000, then just to play your game to eliminate unexpectedly appearing objects. Then, before build your game, you will deliver raysPerFrame in 1 that Polygonal Culling did not load CPU.
+
+Or you can choose the 'Baked' type and deliver accuracy in 15 - 25. More from you additional actions are not required.
+
+On questions address on e-mail: andre-orsk@yandex.ru
+
+Kindest regards,
+Andrey.
